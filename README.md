@@ -1,6 +1,6 @@
 # MNIST CNN Optimizer Comparison
 
-## 📌 Project Overview
+##  Project Overview
 
 This project implements a **Convolutional Neural Network (CNN)** trained on the **MNIST handwritten digit dataset**.
 The objective is to evaluate and compare the performance of different optimizers:
@@ -17,7 +17,7 @@ The comparison is based on:
 
 ---
 
-## 🧠 Dataset
+##  Dataset
 
 * MNIST dataset (handwritten digits 0–9)
 * 60,000 training images
@@ -26,7 +26,7 @@ The comparison is based on:
 
 ---
 
-## ⚙️ Technologies Used
+##  Technologies Used
 
 * Python 3.x
 * TensorFlow / Keras
@@ -35,7 +35,7 @@ The comparison is based on:
 
 ---
 
-## 🏗️ Model Architecture
+##  Model Architecture
 
 The CNN architecture follows the exact assignment specification:
 
@@ -50,7 +50,7 @@ The CNN architecture follows the exact assignment specification:
 
 ---
 
-## 🔄 Methodology
+##  Methodology
 
 ### 1. Data Preprocessing
 
@@ -105,12 +105,6 @@ This ensures a **fair and unbiased comparison**.
 
 ## 📊 Results
 
-### 🔹 Observations
-
-* **Adam** → Fast convergence, highest accuracy
-* **SGD** → Slower but stable learning
-* **Adadelta** → Moderate performance
-
 ---
 
 ## 📈 Visualizations
@@ -123,7 +117,7 @@ The project includes:
 
 ---
 
-## 🧪 Model Evaluation
+##  Model Evaluation
 
 | Optimizer | Accuracy   | Loss       |
 | --------- | ---------- | ---------- |
@@ -131,6 +125,12 @@ The project includes:
 | SGD       | 0.9779     | 0.0706     |
 | Adadelta  | 0.8115     | 0.6351     |
 Best Model: Adam Optimizer
+
+###  Observations
+
+* **Adam** → Fast convergence, highest accuracy
+* **SGD** → Slower but stable learning
+* **Adadelta** → Moderate performance
 
 Model Saving
 
@@ -146,21 +146,27 @@ Model Testing (Adam)
 
 After reloading the best model:
 
-Tested on 50 unseen samples
-Predictions were fully correct on selected samples
+Tested on 50 unseen samples ,
+Predictions were fully correct on selected samples and 
 Evaluated on full test set:
- Wrong Predictions: 102
+ Wrong Predictions: 102 
  High overall generalization performance
 
 Workflow Summary
+
 Train CNN with multiple optimizers (Adam, SGD, Adadelta)
+
 Evaluate and compare performance
+
 Save all trained models
+
 Select best model (Adam)
+
 Reload Adam model
+
 Perform prediction and evaluation on test data
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 MNIST-CNN/
