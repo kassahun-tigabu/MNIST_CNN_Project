@@ -70,14 +70,23 @@ Each optimizer is trained **independently** using:
 
 ```python
 def train_model(optimizer_name):
+
     model = build_model()
+
     model.compile(
         optimizer=optimizer_name,
         loss='categorical_crossentropy',
         metrics=['accuracy']
     )
-    history = model.fit(x_train, y_train, epochs=10, validation_data=(x_test, y_test))
-    return history
+
+    history = model.fit(
+        x_train, y_train,
+        epochs=10,
+        validation_data=(x_test, y_test),
+        verbose=1
+    )
+
+    return model, history
 ```
 
 ---
@@ -116,16 +125,40 @@ The project includes:
 
 ## 🧪 Model Evaluation
 
-The model achieves approximately:
+| Optimizer | Accuracy   | Loss       |
+| --------- | ---------- | ---------- |
+| Adam      | **0.9922** | **0.0248** |
+| SGD       | 0.9779     | 0.0706     |
+| Adadelta  | 0.8115     | 0.6351     |
+Best Model: Adam Optimizer
 
-* **~98–99% accuracy using Adam**
+Model Saving
 
-Example prediction:
+All trained models were saved successfully:
 
-* Input image: handwritten "1"
-* Model output: **1 (correct)**
+adam_model.keras
+sgd_model.keras
+adadelta_model.keras
 
----
+The Adam model was selected for final deployment due to highest accuracy and lowest loss.
+
+Model Testing (Adam)
+
+After reloading the best model:
+
+Tested on 50 unseen samples
+Predictions were fully correct on selected samples
+Evaluated on full test set:
+ Wrong Predictions: 102
+ High overall generalization performance
+
+Workflow Summary
+Train CNN with multiple optimizers (Adam, SGD, Adadelta)
+Evaluate and compare performance
+Save all trained models
+Select best model (Adam)
+Reload Adam model
+Perform prediction and evaluation on test data
 
 ## 📂 Project Structure
 
@@ -138,30 +171,11 @@ MNIST-CNN/
 └── results/                  # Plots and outputs
 ```
 
----
+##  Conclusion
 
-## ▶️ How to Run
+The Adam optimizer CNN model achieved the best performance with 99.22% accuracy, making it the final selected model for digit classification tasks.
 
-1. Open the notebook in Google Colab
-2. Run all cells sequentially
-3. Train models using:
-
-   * Adam
-   * Adadelta
-   * SGD
-4. Visualize results
-
----
-
-## 📌 Conclusion
-
-* Adam optimizer performs best for this CNN architecture
-* Proper optimizer selection significantly impacts model performance
-* CNN effectively extracts spatial features from image data
-
----
-
-## 👤 Author
+##  Author
 
 **KASSAHUN TIGABU**
 Data Science Student
